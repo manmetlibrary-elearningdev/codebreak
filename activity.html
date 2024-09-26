@@ -118,11 +118,12 @@
 <body>
     <h1>Codebreaker!</h1>
     <div class="instructions">
-        <p>Follow the instructions to answer each of the questions. Enter your answers in the spaces provided.
-            When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
+        <p>Follow the instructions to answer each of the questions. Enter your answers in the spaces provided.</p> 
+        <br>
+            <p>When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
     </div>
 
-   <!-- Example (Improved version with no input) -->
+    <!-- Example (Improved version with no input) -->
     <div class="question-section">
         <div class="question">Example: Which city is the focus for your assignment?</div>
         <div class="answer-grid">
@@ -148,7 +149,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">6</div>
-                <div class="letter">E</div>
+                <div class="letter highlight">E</div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -164,8 +165,7 @@
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter highlight">R</div>
-                
+                <div class="letter">R</div>
             </div>
         </div>
     </div>
@@ -190,7 +190,7 @@
                 <div class="letter" id="q1-1"></div>
             </div>
             <div class="grid-column">
-                <div class="number">3</div>
+                <div class="number">3</div> <!-- Number clue for R -->
                 <div class="letter highlight" id="q1-2"></div>
             </div>
             <div class="grid-column">
@@ -198,7 +198,7 @@
                 <div class="letter" id="q1-3"></div>
             </div>
             <div class="grid-column">
-                <div class="number">5</div>
+                <div class="number">5</div> <!-- Number clue for E -->
                 <div class="letter highlight" id="q1-4"></div>
             </div>
             <div class="grid-column">
@@ -252,7 +252,7 @@
                 <div class="letter" id="q2-3"></div>
             </div>
             <div class="grid-column">
-                <div class="number">7</div>
+                <div class="number">7</div> <!-- Number clue for K -->
                 <div class="letter highlight" id="q2-4"></div>
             </div>
         </div>
@@ -282,11 +282,11 @@
                 <div class="letter" id="q3-2"></div>
             </div>
             <div class="grid-column">
-                <div class="number">4</div>
+                <div class="number">4</div> <!-- Number clue for G -->
                 <div class="letter highlight" id="q3-3"></div>
             </div>
             <div class="grid-column">
-                <div class="number">2</div>
+                <div class="number">2</div> <!-- Number clue for U -->
                 <div class="letter highlight" id="q3-4"></div>
             </div>
             <div class="grid-column">
@@ -302,7 +302,7 @@
                 <div class="letter" id="q3-7"></div>
             </div>
             <div class="grid-column">
-                <div class="number">9</div>
+                <div class="number">9</div> <!-- Number clue for N -->
                 <div class="letter highlight" id="q3-8"></div>
             </div>
             <div class="grid-column">
@@ -324,11 +324,11 @@
         <input class="answer-input" id="q4-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q4', 'NIGHTCLUB')">
         <div class="answer-grid">
             <div class="grid-column">
-                <div class="number">1</div> <!-- Number clue -->
+                <div class="number">1</div> <!-- Number clue for B -->
                 <div class="letter highlight" id="q4-0"></div>
             </div>
             <div class="grid-column">
-                <div class="number">8</div> <!-- Number clue -->
+                <div class="number">8</div> <!-- Number clue for I -->
                 <div class="letter highlight" id="q4-1"></div>
             </div>
             <div class="grid-column">
@@ -352,7 +352,7 @@
                 <div class="letter" id="q4-6"></div>
             </div>
             <div class="grid-column">
-                <div class="number">10</div> <!-- Number clue -->
+                <div class="number">10</div> <!-- Number clue for G -->
                 <div class="letter highlight" id="q4-7"></div>
             </div>
             <div class="grid-column">
