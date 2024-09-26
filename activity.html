@@ -26,6 +26,13 @@
             margin-bottom: 10px;
         }
 
+        .instructions {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
         .answer-input {
             display: flex;
             margin-bottom: 10px;
@@ -71,10 +78,9 @@
             font-size: 20px;
         }
 
-        .instructions {
-            background-color: #e0e0e0;
-            padding: 10px;
-            border-radius: 5px;
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
         }
 
         .feedback {
@@ -110,16 +116,45 @@
         <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes. When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
     </div>
 
+    <!-- Example -->
+    <div class="question-section">
+        <div class="question">Example: Which city is the focus for your assignment?</div>
+        <div class="answer-input">
+            <div class="number-row">1 2 3 4 5 6 7 8 9</div>
+            <div class="answer-input">
+                <input type="text" value="M" disabled>
+                <input type="text" value="A" disabled>
+                <input type="text" value="N" disabled>
+                <input type="text" value="C" disabled>
+                <input type="text" value="H" disabled>
+                <input class="highlight" type="text" value="E" disabled> <!-- Highlighted for BURGER -->
+                <input type="text" value="S" disabled>
+                <input type="text" value="T" disabled>
+                <input class="highlight" type="text" value="R" disabled> <!-- Highlighted for BURGER -->
+            </div>
+        </div>
+    </div>
+
     <!-- Question 1 -->
     <div class="question-section">
         <div class="question">Q1: What is the third most commonly appearing attribute in the article?</div>
+        <div class="instructions">
+            <p>Library Search:</p>
+            <ul>
+                <li>Access the Library website: <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a></li>
+                <li>Use Library Search to find the journal article “how was your meal?”</li>
+                <li>Click on View PDF to access the full article.</li>
+                <li>Go to section 2.1 of the article The Big Four Restaurant Attributes.</li>
+            </ul>
+        </div>
+        <div class="number-row">1 2 3 4 5 6 7 8 9 10</div>
         <input class="answer-field" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 10)">
         <div class="answer-input" id="q1-answer">
             <input type="text" disabled>
             <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 3rd letter for BURGER -->
             <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 5th letter for BURGER -->
             <input type="text" disabled>
             <input type="text" disabled>
             <input type="text" disabled>
@@ -132,13 +167,24 @@
     <!-- Question 2 -->
     <div class="question-section">
         <div class="question">Q2: What is the name of the leisure chain redeveloping Hatch on Oxford Road?</div>
+        <div class="instructions">
+            <p>Lexis+:</p>
+            <ul>
+                <li>Access the Library website: <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a></li>
+                <li>Click on the Search Tools tab and navigate to Databases A-Z.</li>
+                <li>Click on L and access the Lexis+ database.</li>
+                <li>Select UK regional newspapers and search for “street food”.</li>
+                <li>Find the article ‘New food venue set to Hatch’ in the Manchester Evening News.</li>
+            </ul>
+        </div>
+        <div class="number-row">1 2 3 4 5 6 7</div>
         <input class="answer-field" id="q2-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q2', 5)">
         <div class="answer-input" id="q2-answer">
             <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 2nd letter for BURGER -->
             <input type="text" disabled>
             <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 7th letter for BURGER -->
         </div>
         <div id="q2-feedback" class="feedback"></div>
     </div>
@@ -146,31 +192,96 @@
     <!-- Question 3 -->
     <div class="question-section">
         <div class="question">Q3: What is the name of the Latin American casual dining restaurant which relaunched its 'Race to Rio' tour in January 2023?</div>
+        <div class="instructions">
+            <p>Mintel:</p>
+            <ul>
+                <li>Access the Library website: <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a></li>
+                <li>Click on the Search Tools tab and navigate to Databases A-Z.</li>
+                <li>Select Mintel and search for “ethnic restaurants”.</li>
+                <li>Access the report "Ethnic restaurants and takeaways – UK – 2023".</li>
+                <li>Expand the Market section and navigate to the Market Drivers section.</li>
+            </ul>
+        </div>
+        <div class="number-row">1 2 3 4 5 6 7 8 9 10</div>
         <input class="answer-field" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 10)">
         <div class="answer-input" id="q3-answer">
             <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 9th letter for KING -->
+            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 4th letter for KING -->
             <input type="text" disabled>
             <input type="text" disabled>
             <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
-            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 8th letter for KING -->
             <input type="text" disabled>
             <input type="text" disabled>
         </div>
         <div id="q3-feedback" class="feedback"></div>
     </div>
 
-    <button onclick="checkAnswers()">Check Answers</button>
+    <!-- Question 4 -->
+    <div class="question-section">
+        <div class="question">Q4: What type of venue has the lowest number of premises?</div>
+        <div class="instructions">
+            <p>Statista:</p>
+            <ul>
+                <li>Access the Library website: <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a></li>
+                <li>Click on the Search Tools tab and navigate to Databases A-Z.</li>
+                <li>Select Statista and search for “restaurants United Kingdom”.</li>
+                <li>Access the report "Restaurants in the United Kingdom".</li>
+                <li>Download the report as a PDF and refer to the segment on page 9.</li>
+            </ul>
+        </div>
+        <div class="number-row">1 2 3 4 5 6 7 8 9 10</div>
+        <input class="answer-field" id="q4-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q4', 10)">
+        <div class="answer-input" id="q4-answer">
+            <input class="highlight" type="text" disabled> <!-- 1st letter for BURGER -->
+            <input class="highlight" type="text" disabled> <!-- 2nd letter for KING -->
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 8th letter for KING -->
+            <input type="text" disabled>
+            <input class="highlight" type="text" disabled> <!-- 10th letter for KING -->
+        </div>
+        <div id="q4-feedback" class="feedback"></div>
+    </div>
+
+    <!-- Final Codeword Entry -->
+    <div class="question-section">
+        <div class="question">Enter the final codeword:</div>
+        <div class="instructions">
+            <p>Use the letters from the highlighted boxes in each question (numbers provided above the boxes) to form the codeword.</p>
+            <p>The codeword has 10 letters, split into two words: "BURGER KING".</p>
+        </div>
+        <div class="codeword-input">
+            <input type="text" maxlength="1" id="letter1">
+            <input type="text" maxlength="1" id="letter2">
+            <input type="text" maxlength="1" id="letter3">
+            <input type="text" maxlength="1" id="letter4">
+            <input type="text" maxlength="1" id="letter5">
+            <input type="text" maxlength="1" id="letter6">
+            <input type="text" maxlength="1" id="letter7">
+            <input type="text" maxlength="1" id="letter8">
+            <input type="text" maxlength="1" id="letter9">
+            <input type="text" maxlength="1" id="letter10">
+        </div>
+        <button onclick="checkCodeword()">Check Codeword</button>
+        <div id="codeword-feedback" class="feedback"></div>
+    </div>
 
     <script>
         // Answers for the questions
         const answers = {
             q1: "ATMOSPHERE",
             q2: "STACK",
-            q3: "LASIGUANAS"
+            q3: "LASIGUANAS",
+            q4: "NIGHTCLUB"
         };
+
+        const finalCodeword = "BURGERKING";
 
         // Function to fill the answer boxes as students type
         function fillAnswer(questionId, maxLength) {
@@ -192,10 +303,12 @@
             const q1Input = document.getElementById('q1-input').value.toUpperCase();
             const q2Input = document.getElementById('q2-input').value.toUpperCase();
             const q3Input = document.getElementById('q3-input').value.toUpperCase();
+            const q4Input = document.getElementById('q4-input').value.toUpperCase();
 
             checkAnswer(q1Input, answers.q1, 'q1');
             checkAnswer(q2Input, answers.q2, 'q2');
             checkAnswer(q3Input, answers.q3, 'q3');
+            checkAnswer(q4Input, answers.q4, 'q4');
         }
 
         // Helper function to check individual answers and display feedback
@@ -208,6 +321,33 @@
                 feedbackElement.classList.add('correct');
             } else {
                 feedbackElement.textContent = '❌ Incorrect';
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+            }
+        }
+
+        // Function to check the final codeword
+        function checkCodeword() {
+            const codewordInput = [
+                document.getElementById('letter1').value.toUpperCase(),
+                document.getElementById('letter2').value.toUpperCase(),
+                document.getElementById('letter3').value.toUpperCase(),
+                document.getElementById('letter4').value.toUpperCase(),
+                document.getElementById('letter5').value.toUpperCase(),
+                document.getElementById('letter6').value.toUpperCase(),
+                document.getElementById('letter7').value.toUpperCase(),
+                document.getElementById('letter8').value.toUpperCase(),
+                document.getElementById('letter9').value.toUpperCase(),
+                document.getElementById('letter10').value.toUpperCase(),
+            ].join('');
+
+            const feedbackElement = document.getElementById('codeword-feedback');
+            if (codewordInput === finalCodeword) {
+                feedbackElement.textContent = '✔️ Correct! The codeword is BURGER KING';
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+            } else {
+                feedbackElement.textContent = '❌ Incorrect! Try again.';
                 feedbackElement.classList.remove('correct');
                 feedbackElement.classList.add('incorrect');
             }
