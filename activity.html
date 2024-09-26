@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebreaker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question-section {
+            margin: 20px 0;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .answer-input {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .answer-input input[type="text"] {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .answer-field {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        #key {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .codeword-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .codeword-input input {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .instructions {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .feedback {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .feedback.correct {
+            color: green;
+        }
+
+        .feedback.incorrect {
+            color: red;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Codebreaker!</h1>
+    <div class="instructions">
+        <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes. When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="question-section">
+        <div class="question">Q1: What is the third most commonly appearing attribute in the article?</div>
+        <input class="answer-field" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 10)">
+        <div class="answer-input" id="q1-answer">
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+        </div>
+        <div id="q1-feedback" class="feedback"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-section">
+        <div class="question">Q2: What is the name of the leisure chain redeveloping Hatch on Oxford Road?</div>
+        <input class="answer-field" id="q2-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q2', 5)">
+        <div class="answer-input" id="q2-answer">
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+        </div>
+        <div id="q2-feedback" class="feedback"></div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-section">
+        <div class="question">Q3: What is the name of the Latin American casual dining restaurant which relaunched its 'Race to Rio' tour in January 2023?</div>
+        <input class="answer-field" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 10)">
+        <div class="answer-input" id="q3-answer">
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+            <input type="text" disabled>
+        </div>
+        <div id="q3-feedback" class="feedback"></div>
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+
+    <script>
+        // Answers for the questions
+        const answers = {
+            q1: "ATMOSPHERE",
+            q2: "STACK",
+            q3: "LASIGUANAS"
+        };
+
+        // Function to fill the answer boxes as students type
+        function fillAnswer(questionId, maxLength) {
+            const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+            const answerBoxes = document.getElementById(`${questionId}-answer`).getElementsByTagName('input');
+
+            // Loop through each box and fill with the respective letter
+            for (let i = 0; i < answerBoxes.length; i++) {
+                if (i < input.length && i < maxLength) {
+                    answerBoxes[i].value = input[i];  // Fill in the box
+                } else {
+                    answerBoxes[i].value = "";  // Clear the box if there's no input
+                }
+            }
+        }
+
+        // Function to check the answers and display feedback
+        function checkAnswers() {
+            const q1Input = document.getElementById('q1-input').value.toUpperCase();
+            const q2Input = document.getElementById('q2-input').value.toUpperCase();
+            const q3Input = document.getElementById('q3-input').value.toUpperCase();
+
+            checkAnswer(q1Input, answers.q1, 'q1');
+            checkAnswer(q2Input, answers.q2, 'q2');
+            checkAnswer(q3Input, answers.q3, 'q3');
+        }
+
+        // Helper function to check individual answers and display feedback
+        function checkAnswer(userInput, correctAnswer, questionId) {
+            const feedbackElement = document.getElementById(`${questionId}-feedback`);
+
+            if (userInput === correctAnswer) {
+                feedbackElement.textContent = '✔️ Correct';
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+            } else {
+                feedbackElement.textContent = '❌ Incorrect';
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
