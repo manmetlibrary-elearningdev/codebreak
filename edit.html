@@ -36,33 +36,40 @@
              line-height: 1.5; 
         }
 
+
+
+
         .answer-grid {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+    display: flex;
+    justify-content: flex-start; /* Aligns the grid to the left */
+    gap: 5px; /* Adds spacing between columns */
+    margin-bottom: 10px;
+}
 
-        .grid-column {
-            display: flex;
-            flex-direction: column;
-        }
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns content within each column */
+}
 
-        .grid-column div {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            border: 1px solid black;
-            background-color: white;
-            color: black;
-        }
+.grid-column div {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
 
-        .grid-column .number {
-            background-color: #00c1d4;
-            color: white;
-        }
+.grid-column .number {
+    background-color: #00c1d4;
+    color: white;
+}
+
+
 
         .grid-column .letter.highlight {
             background-color: #00c1d4;
