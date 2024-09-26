@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebreaker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question-section {
+            margin: 50px 0;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+             line-height: 1.5; 
+        }
+
+        .instructions {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+             line-height: 1.5; 
+        }
+
+        .answer-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .grid-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-column div {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+        }
+
+        .grid-column .number {
+            background-color: #00c1d4;
+            color: white;
+        }
+
+        .grid-column .letter.highlight {
+            background-color: #00c1d4;
+            color: white;
+        }
+
+        .answer-input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .codeword-input {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .codeword-input input {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .feedback {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .feedback.correct {
+            color: green;
+        }
+
+        .feedback.incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Codebreaker!</h1>
+    <div class="instructions">
+       
+            
+        <p>Follow the instructions to answer each of the questions below. Enter your answers in the spaces provided. </p>
+        <p>When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
+    </div>
+
+    <!-- Example (Improved version with no input) -->
+    <div class="question-section">
+        <div class="question">Example: Which city is the focus for your assignment?</div>
+
+        <div class="answer-grid">
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">M</div> <!-- expected answer is M -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">A</div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">N</div> <!-- expected answer is N -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">C</div> <!-- expected answer is C -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">H</div> <!-- expected answer is H -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">E</div> <!-- expected answer is E -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">S</div> <!-- expected answer is S -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">T</div> <!-- expected answer is T -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter">E</div> <!-- expected answer is E -->
+    </div>
+    <div class="grid-column">
+        <div class="number">6</div> <!-- Number clue for R -->
+        <div class="letter highlight">R</div> <!-- expected answer is R -->
+    </div>
+</div>
+
+
+    <!-- Question 1 -->
+    <div class="question-section">
+        <div class="question">Question 1</div>
+        <div class="instructions">
+            <p>
+              <h1>What is the third most commonly appearing attribute in the article?</h1>
+                <li>Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.</li>
+
+            <li>Use Library Search to find the journal article “how was your meal?” </li>
+                <li>TIP: Use "speech marks" as shown above to ensure the words appear next to each other in the results.</li>
+
+
+<li>Click on View PDF to access the full article.</li>
+
+<li>Go to section 2.1 of the article 'The Big Four Restaurant Attributes'.</li>
+                
+            </p>
+        </div>
+
+
+      <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'ATMOSPHERE')">
+        
+  <div class="answer-grid">
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-0"></div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-1"></div> <!-- expected answer is T -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-2"></div> <!-- expected answer is M -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-3"></div> <!-- expected answer is O -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-4"></div> <!-- expected answer is S -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-5"></div> <!-- expected answer is P -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-6"></div> <!-- expected answer is H -->
+    </div>
+    <div class="grid-column">
+        <div class="number">5</div> <!-- Number clue for E -->
+        <div class="letter highlight" id="q1-7"></div> <!-- expected answer is E -->
+    </div>
+    <div class="grid-column">
+        <div class="number">3</div> <!-- Number clue for R -->
+        <div class="letter highlight" id="q1-8"></div> <!-- expected answer is R -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q1-9"></div> <!-- expected answer is E -->
+    </div>
+</div>
+
+
+    <!-- Question 2 -->
+    <div class="question-section">
+        <div class="question">Question 2</div>
+        <div class="instructions">
+            <p>
+              <h1>What is the name of the leisure chain redeveloping Hatch on Oxford Road?</h1>
+              <li>Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.</li> 
+
+<li>Select the Search Tools tab.</li>
+
+<li>Select Databases A-Z.</li>
+
+<li>Select the letter L and access the Lexis+ database.</li>
+
+<li>Select the Newspapers link.</li>
+
+<li>Select UK regional newspapers.</li>
+
+<li>Select Manchester Evening News.</li>
+
+<li>Search for “street food”.</li>
+
+<li>Access the article ‘New food venue set to Hatch’.</li>
+                
+            </p>
+        </div>
+        <input class="answer-input" id="q2-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q2', 'STACK')">
+
+        <div class="answer-grid">
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q2-0"></div> <!-- expected answer is S -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q2-1"></div> <!-- expected answer is T -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q2-2"></div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q2-3"></div> <!-- expected answer is C -->
+    </div>
+    <div class="grid-column">
+        <div class="number">7</div> <!-- Number clue for K -->
+        <div class="letter highlight" id="q2-4"></div> <!-- expected answer is K -->
+    </div>
+</div>
+
+
+    <!-- Question 3 -->
+    <div class="question-section">
+        <div class="question">Question 3</div>
+        <div class="instructions">
+            <p>
+              <h1>What is the name of the Latin American casual dining restaurant which relaunched its 'Race to Rio' tour in January 2023?</h1>
+                <li>Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.</li> 
+               <li>Select the Search Tools tab.</li>
+<li>Select Databases A-Z.</li>
+<li>Select the letter M and access the Mintel database.</li>
+<li>Search for 'ethnic restaurants'.</li>
+<li>Access the report Ethnic restaurants and takeaways – UK – 2023.</li>
+<li>Expand the Market section and access the 'Market drivers' section of the report.</li>
+
+            </p>
+        </div>
+
+            <input class="answer-input" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 'LASIGUANAS')">
+
+<div class="answer-grid">
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-0"></div> <!-- expected answer is L -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-1"></div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-2"></div> <!-- expected answer is S -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-3"></div> <!-- expected answer is I -->
+    </div>
+    <div class="grid-column">
+        <div class="number">4</div> <!-- Number clue for G -->
+        <div class="letter highlight" id="q3-4"></div> <!-- expected answer is G -->
+    </div>
+    <div class="grid-column">
+        <div class="number">2</div> <!-- Number clue for U -->
+        <div class="letter highlight" id="q3-5"></div> <!-- expected answer is U -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-6"></div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div class="number">9</div> <!-- Number clue for N -->
+        <div class="letter highlight" id="q3-7"></div> <!-- expected answer is N -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-8"></div> <!-- expected answer is A -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q3-9"></div> <!-- expected answer is S -->
+    </div>
+</div>
+
+
+    <!-- Question 4 -->
+    <div class="question-section">
+        <div class="question">Question 4</div>
+        <div class="instructions">
+            <p>
+              <h1>What type of venue has the lowest number of premises?</h1>
+        <li>Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.</li>
+        <li>Select the Search Tools tab</li>
+<li>Select Databases A-Z</li>
+<li>Select the letter S and access the Statista database</li>
+<li>Search for: restaurants United Kingdom</li>
+<li>Access the report Restaurants in the United Kingdom</li>
+<li>Download the report as a PDF file</li>
+<li>From the table of contents page, access ‘Number of food and drink venues in Great Britain 2017-2023 by segment’ on page 9 (you can select the page number to go directly to the page)</li>
+
+            </p>
+        </div>
+        <input class="answer-input" id="q4-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q4', 'NIGHTCLUB')">
+
+<div class="answer-grid">
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-0"></div> <!-- expected answer is N -->
+    </div>
+    <div class="grid-column">
+        <div class="number">8</div> <!-- Number clue for I -->
+        <div class="letter highlight" id="q4-1"></div> <!-- expected answer is I -->
+    </div>
+    <div class="grid-column">
+        <div class="number">10</div> <!-- Number clue for G -->
+        <div class="letter highlight" id="q4-2"></div> <!-- expected answer is G -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-3"></div> <!-- expected answer is H -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-4"></div> <!-- expected answer is T -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-5"></div> <!-- expected answer is C -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-6"></div> <!-- expected answer is L -->
+    </div>
+    <div class="grid-column">
+        <div></div>
+        <div class="letter" id="q4-7"></div> <!-- expected answer is U -->
+    </div>
+    <div class="grid-column">
+        <div class="number">1</div> <!-- Number clue for B -->
+        <div class="letter highlight" id="q4-8"></div> <!-- expected answer is B -->
+    </div>
+</div>
+
+
+
+  
+    <!-- Final Codeword Entry -->
+    <div class="question-section">
+        <div class="question">Decipher the final codeword:</div>
+        <div class="instructions">
+           <p><li>Take the highlighted letters from your previous answers.</li>
+             <li>Arrange these letters according to their corresponding numbers (1,2,3, etc).</li>
+            <li>Note: the codeword is made of 2 words.</li></p>
+        </div>
+        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'BURGERKING')">
+ 
+
+<div class="answer-grid">
+    <div class="grid-column">
+        <div class="number">1</div>
+        <div class="letter" id="codeword-0"></div> <!-- expected answer is B -->
+    </div>
+    <div class="grid-column">
+        <div class="number">2</div>
+        <div class="letter" id="codeword-1"></div> <!-- expected answer is U -->
+    </div>
+    <div class="grid-column">
+        <div class="number">3</div>
+        <div class="letter" id="codeword-2"></div> <!-- expected answer is R -->
+    </div>
+    <div class="grid-column">
+        <div class="number">4</div>
+        <div class="letter" id="codeword-3"></div> <!-- expected answer is G -->
+    </div>
+    <div class="grid-column">
+        <div class="number">5</div>
+        <div class="letter" id="codeword-4"></div> <!-- expected answer is E -->
+    </div>
+    <div class="grid-column">
+        <div class="number">6</div>
+        <div class="letter" id="codeword-5"></div> <!-- expected answer is R -->
+    </div>
+
+    <!-- Space between words -->
+    <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
+
+    <div class="grid-column">
+        <div class="number">7</div>
+        <div class="letter" id="codeword-6"></div> <!-- expected answer is K -->
+    </div>
+    <div class="grid-column">
+        <div class="number">8</div>
+        <div class="letter" id="codeword-7"></div> <!-- expected answer is I -->
+    </div>
+    <div class="grid-column">
+        <div class="number">9</div>
+        <div class="letter" id="codeword-8"></div> <!-- expected answer is N -->
+    </div>
+    <div class="grid-column">
+        <div class="number">10</div>
+        <div class="letter" id="codeword-9"></div> <!-- expected answer is G -->
+    </div>
+</div>
+
+
+        
+        <button onclick="checkCodeword()">Check Codeword</button>
+        <div id="codeword-feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        const finalCodeword = "BURGERKING";
+
+        // Function to fill the answer grid as students type
+        function fillAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+            const correctAnswerArr = correctAnswer.split('');
+
+            // Loop through each letter in the answer and fill the grid
+            for (let i = 0; i < correctAnswerArr.length; i++) {
+                const letterBox = document.getElementById(`${questionId}-${i}`);
+                letterBox.textContent = input[i] || ''; // Fill the box if there is input, else leave it empty
+            }
+        }
+
+        // Function to fill the answer grid as students type
+function fillAnswer(questionId, correctAnswer) {
+    const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+    const inputWithoutSpaces = input.replace(/\s+/g, ''); // Remove spaces from the input
+    const correctAnswerArr = correctAnswer.split('');
+
+    // Loop through each letter in the answer and fill the grid
+    for (let i = 0; i < correctAnswerArr.length; i++) {
+        const letterBox = document.getElementById(`${questionId}-${i}`);
+        letterBox.textContent = inputWithoutSpaces[i] || ''; // Fill the box if there is input, else leave it empty
+    }
+}
+
+        // Function to check the final codeword
+        function checkCodeword() {
+            const codewordInput = [
+                document.getElementById('codeword-0').textContent,
+                document.getElementById('codeword-1').textContent,
+                document.getElementById('codeword-2').textContent,
+                document.getElementById('codeword-3').textContent,
+                document.getElementById('codeword-4').textContent,
+                document.getElementById('codeword-5').textContent,
+                document.getElementById('codeword-6').textContent,
+                document.getElementById('codeword-7').textContent,
+                document.getElementById('codeword-8').textContent,
+                document.getElementById('codeword-9').textContent,
+            ].join('');
+
+            const feedbackElement = document.getElementById('codeword-feedback');
+            if (codewordInput === finalCodeword) {
+                feedbackElement.textContent = '✔️ Correct! The codeword is BURGER KING';
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+            } else {
+                feedbackElement.textContent = '❌ Incorrect! Try again.';
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
