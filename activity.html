@@ -267,8 +267,14 @@
                 Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.
                 Navigate to Mintel through Databases A-Z, and search for "ethnic restaurants". Access the report "Ethnic restaurants and takeaways – UK – 2023" and refer to the Market Drivers section.
             </p>
-        </div>
-        <input class="answer-input" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 'LASIGUANAS')">
+<div>
+
+            <input class="answer-input" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 'LASIGUANAS')">
+
+
+
+        
+    
         <div class="answer-grid">
             <div class="grid-column">
                 <div></div>
@@ -439,6 +445,19 @@
                 letterBox.textContent = input[i] || ''; // Fill the box if there is input, else leave it empty
             }
         }
+
+        // Function to fill the answer grid as students type
+function fillAnswer(questionId, correctAnswer) {
+    const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+    const inputWithoutSpaces = input.replace(/\s+/g, ''); // Remove spaces from the input
+    const correctAnswerArr = correctAnswer.split('');
+
+    // Loop through each letter in the answer and fill the grid
+    for (let i = 0; i < correctAnswerArr.length; i++) {
+        const letterBox = document.getElementById(`${questionId}-${i}`);
+        letterBox.textContent = inputWithoutSpaces[i] || ''; // Fill the box if there is input, else leave it empty
+    }
+}
 
         // Function to check the final codeword
         function checkCodeword() {
