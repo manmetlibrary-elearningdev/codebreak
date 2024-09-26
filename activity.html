@@ -52,17 +52,17 @@
             align-items: center;
             font-size: 20px;
             border: 1px solid black;
-            background-color: #333;
-            color: white;
+            background-color: white;
+            color: black;
         }
 
         .grid-column .number {
-            background-color: orange;
+            background-color: #00c1d4;
             color: white;
         }
 
-        .grid-column .letter {
-            background-color: black;
+        .grid-column .letter.highlight {
+            background-color: #00c1d4;
             color: white;
         }
 
@@ -118,14 +118,12 @@
 <body>
     <h1>Codebreaker!</h1>
     <div class="instructions">
-        <p>Find the answer to the questions and put each letter of the word in the blank boxes. 
-            When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
+        <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes below. When you have answered all of the questions, take the letters from the numbered boxes and put them into the final grid to discover the codeword.</p>
     </div>
 
-    <!-- Example -->
+    <!-- Example (no instructions) -->
     <div class="question-section">
         <div class="question">Example: Which city is the focus for your assignment?</div>
-       
         <input class="answer-input" id="example-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('example', 'MANCHESTER')">
         <div class="answer-grid">
             <div class="grid-column">
@@ -150,7 +148,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">6</div>
-                <div class="letter" id="example-5"></div>
+                <div class="letter highlight" id="example-5"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -162,7 +160,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">6</div>
-                <div class="letter" id="example-8"></div>
+                <div class="letter highlight" id="example-8"></div>
             </div>
         </div>
     </div>
@@ -188,7 +186,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">3</div>
-                <div class="letter" id="q1-2"></div>
+                <div class="letter highlight" id="q1-2"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -196,7 +194,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">5</div>
-                <div class="letter" id="q1-4"></div>
+                <div class="letter highlight" id="q1-4"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -250,7 +248,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">7</div>
-                <div class="letter" id="q2-4"></div>
+                <div class="letter highlight" id="q2-4"></div>
             </div>
         </div>
     </div>
@@ -280,11 +278,11 @@
             </div>
             <div class="grid-column">
                 <div class="number">4</div>
-                <div class="letter" id="q3-3"></div>
+                <div class="letter highlight" id="q3-3"></div>
             </div>
             <div class="grid-column">
                 <div class="number">2</div>
-                <div class="letter" id="q3-4"></div>
+                <div class="letter highlight" id="q3-4"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -300,7 +298,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">9</div>
-                <div class="letter" id="q3-8"></div>
+                <div class="letter highlight" id="q3-8"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -322,11 +320,11 @@
         <div class="answer-grid">
             <div class="grid-column">
                 <div class="number">1</div> <!-- Number clue -->
-                <div class="letter" id="q4-0"></div>
+                <div class="letter highlight" id="q4-0"></div>
             </div>
             <div class="grid-column">
                 <div class="number">8</div> <!-- Number clue -->
-                <div class="letter" id="q4-1"></div>
+                <div class="letter highlight" id="q4-1"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -350,7 +348,7 @@
             </div>
             <div class="grid-column">
                 <div class="number">10</div> <!-- Number clue -->
-                <div class="letter" id="q4-7"></div>
+                <div class="letter highlight" id="q4-7"></div>
             </div>
             <div class="grid-column">
                 <div></div>
@@ -366,46 +364,47 @@
             <p>Use the letters from the highlighted boxes in each question (numbers provided above the boxes) to form the codeword.</p>
             <p>The codeword has 10 letters, split into two words: "BURGER KING".</p>
         </div>
+        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'BURGERKING')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div class="number">1</div>
-                <div><input type="text" maxlength="1" id="letter1"></div>
+                <div class="letter" id="codeword-0"></div>
             </div>
             <div class="grid-column">
                 <div class="number">2</div>
-                <div><input type="text" maxlength="1" id="letter2"></div>
+                <div class="letter" id="codeword-1"></div>
             </div>
             <div class="grid-column">
                 <div class="number">3</div>
-                <div><input type="text" maxlength="1" id="letter3"></div>
+                <div class="letter" id="codeword-2"></div>
             </div>
             <div class="grid-column">
                 <div class="number">4</div>
-                <div><input type="text" maxlength="1" id="letter4"></div>
+                <div class="letter" id="codeword-3"></div>
             </div>
             <div class="grid-column">
                 <div class="number">5</div>
-                <div><input type="text" maxlength="1" id="letter5"></div>
+                <div class="letter" id="codeword-4"></div>
             </div>
             <div class="grid-column">
                 <div class="number">6</div>
-                <div><input type="text" maxlength="1" id="letter6"></div>
+                <div class="letter" id="codeword-5"></div>
             </div>
             <div class="grid-column">
                 <div class="number">7</div>
-                <div><input type="text" maxlength="1" id="letter7"></div>
+                <div class="letter" id="codeword-6"></div>
             </div>
             <div class="grid-column">
                 <div class="number">8</div>
-                <div><input type="text" maxlength="1" id="letter8"></div>
+                <div class="letter" id="codeword-7"></div>
             </div>
             <div class="grid-column">
                 <div class="number">9</div>
-                <div><input type="text" maxlength="1" id="letter9"></div>
+                <div class="letter" id="codeword-8"></div>
             </div>
             <div class="grid-column">
                 <div class="number">10</div>
-                <div><input type="text" maxlength="1" id="letter10"></div>
+                <div class="letter" id="codeword-9"></div>
             </div>
         </div>
         <button onclick="checkCodeword()">Check Codeword</button>
@@ -430,16 +429,16 @@
         // Function to check the final codeword
         function checkCodeword() {
             const codewordInput = [
-                document.getElementById('letter1').value.toUpperCase(),
-                document.getElementById('letter2').value.toUpperCase(),
-                document.getElementById('letter3').value.toUpperCase(),
-                document.getElementById('letter4').value.toUpperCase(),
-                document.getElementById('letter5').value.toUpperCase(),
-                document.getElementById('letter6').value.toUpperCase(),
-                document.getElementById('letter7').value.toUpperCase(),
-                document.getElementById('letter8').value.toUpperCase(),
-                document.getElementById('letter9').value.toUpperCase(),
-                document.getElementById('letter10').value.toUpperCase(),
+                document.getElementById('codeword-0').textContent,
+                document.getElementById('codeword-1').textContent,
+                document.getElementById('codeword-2').textContent,
+                document.getElementById('codeword-3').textContent,
+                document.getElementById('codeword-4').textContent,
+                document.getElementById('codeword-5').textContent,
+                document.getElementById('codeword-6').textContent,
+                document.getElementById('codeword-7').textContent,
+                document.getElementById('codeword-8').textContent,
+                document.getElementById('codeword-9').textContent,
             ].join('');
 
             const feedbackElement = document.getElementById('codeword-feedback');
