@@ -63,6 +63,14 @@
 
         .grid-column .letter {
             background-color: black;
+            color: white;
+        }
+
+        .answer-input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 16px;
         }
 
         .codeword-input {
@@ -110,7 +118,7 @@
 <body>
     <h1>Codebreaker!</h1>
     <div class="instructions">
-        <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes. When you have answered all of the questions, take the letters from the numbered boxes and put them into the final grid to discover the codeword.</p>
+        <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes below. When you have answered all of the questions, take the letters from the numbered boxes and put them into the final grid to discover the codeword.</p>
     </div>
 
     <!-- Example -->
@@ -122,46 +130,43 @@
                 Use Library Search to find the journal article “how was your meal?”. Click on "View PDF" to access the full article and go to section 2.1 of the article "The Big Four Restaurant Attributes".
             </p>
         </div>
+        <input class="answer-input" id="example-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('example', 'MANCHESTER')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div></div>
-                <div class="letter">M</div>
+                <div class="letter" id="example-0"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">A</div>
+                <div class="letter" id="example-1"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">N</div>
+                <div class="letter" id="example-2"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">C</div>
+                <div class="letter" id="example-3"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">H</div>
+                <div class="letter" id="example-4"></div>
             </div>
             <div class="grid-column">
-                <div class="number">6</div> <!-- Number clue -->
-                <div class="letter">E</div>
-            </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter">S</div>
+                <div class="number">6</div>
+                <div class="letter" id="example-5"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">T</div>
+                <div class="letter" id="example-6"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">E</div>
+                <div class="letter" id="example-7"></div>
             </div>
             <div class="grid-column">
-                <div class="number">6</div> <!-- Number clue -->
-                <div class="letter">R</div>
+                <div class="number">6</div>
+                <div class="letter" id="example-8"></div>
             </div>
         </div>
     </div>
@@ -175,46 +180,47 @@
                 Use Library Search to find the journal article “how was your meal?”. Click on "View PDF" to access the full article and go to section 2.1 of the article "The Big Four Restaurant Attributes".
             </p>
         </div>
+        <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'ATMOSPHERE')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div></div>
-                <div class="letter">A</div>
+                <div class="letter" id="q1-0"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">T</div>
+                <div class="letter" id="q1-1"></div>
             </div>
             <div class="grid-column">
-                <div class="number">3</div> <!-- Number clue -->
-                <div class="letter">M</div>
-            </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter">O</div>
-            </div>
-            <div class="grid-column">
-                <div class="number">5</div> <!-- Number clue -->
-                <div class="letter">S</div>
+                <div class="number">3</div>
+                <div class="letter" id="q1-2"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">P</div>
+                <div class="letter" id="q1-3"></div>
+            </div>
+            <div class="grid-column">
+                <div class="number">5</div>
+                <div class="letter" id="q1-4"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">H</div>
+                <div class="letter" id="q1-5"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">E</div>
+                <div class="letter" id="q1-6"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">R</div>
+                <div class="letter" id="q1-7"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">E</div>
+                <div class="letter" id="q1-8"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-9"></div>
             </div>
         </div>
     </div>
@@ -228,26 +234,27 @@
                 Click on the Search Tools tab, then navigate to Databases A-Z, and select Lexis+. In Lexis+, select UK regional newspapers and search for "street food" to find the article ‘New food venue set to Hatch’.
             </p>
         </div>
+        <input class="answer-input" id="q2-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q2', 'STACK')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div></div>
-                <div class="letter">S</div>
+                <div class="letter" id="q2-0"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">T</div>
+                <div class="letter" id="q2-1"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">A</div>
+                <div class="letter" id="q2-2"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">C</div>
+                <div class="letter" id="q2-3"></div>
             </div>
             <div class="grid-column">
-                <div class="number">7</div> <!-- Number clue -->
-                <div class="letter">K</div>
+                <div class="number">7</div>
+                <div class="letter" id="q2-4"></div>
             </div>
         </div>
     </div>
@@ -261,42 +268,47 @@
                 Navigate to Mintel through Databases A-Z, and search for "ethnic restaurants". Access the report "Ethnic restaurants and takeaways – UK – 2023" and refer to the Market Drivers section.
             </p>
         </div>
+        <input class="answer-input" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 'LASIGUANAS')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div></div>
-                <div class="letter">L</div>
+                <div class="letter" id="q3-0"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">A</div>
+                <div class="letter" id="q3-1"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">S</div>
+                <div class="letter" id="q3-2"></div>
             </div>
             <div class="grid-column">
-                <div class="number">4</div> <!-- Number clue -->
-                <div class="letter">I</div>
+                <div class="number">4</div>
+                <div class="letter" id="q3-3"></div>
             </div>
             <div class="grid-column">
-                <div class="number">2</div> <!-- Number clue -->
-                <div class="letter">G</div>
-            </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter">U</div>
+                <div class="number">2</div>
+                <div class="letter" id="q3-4"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">A</div>
+                <div class="letter" id="q3-5"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">N</div>
+                <div class="letter" id="q3-6"></div>
             </div>
             <div class="grid-column">
-                <div class="number">9</div> <!-- Number clue -->
-                <div class="letter">A</div>
+                <div></div>
+                <div class="letter" id="q3-7"></div>
+            </div>
+            <div class="grid-column">
+                <div class="number">9</div>
+                <div class="letter" id="q3-8"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-9"></div>
             </div>
         </div>
     </div>
@@ -310,42 +322,43 @@
                 Navigate to Statista through Databases A-Z, and search for "restaurants United Kingdom". Access the report "Restaurants in the United Kingdom" and refer to the segment on page 9.
             </p>
         </div>
+        <input class="answer-input" id="q4-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q4', 'NIGHTCLUB')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div class="number">1</div> <!-- Number clue -->
-                <div class="letter">N</div>
+                <div class="letter" id="q4-0"></div>
             </div>
             <div class="grid-column">
                 <div class="number">8</div> <!-- Number clue -->
-                <div class="letter">I</div>
+                <div class="letter" id="q4-1"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">G</div>
+                <div class="letter" id="q4-2"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">H</div>
+                <div class="letter" id="q4-3"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">T</div>
+                <div class="letter" id="q4-4"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">C</div>
+                <div class="letter" id="q4-5"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">L</div>
+                <div class="letter" id="q4-6"></div>
             </div>
             <div class="grid-column">
                 <div class="number">10</div> <!-- Number clue -->
-                <div class="letter">U</div>
+                <div class="letter" id="q4-7"></div>
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter">B</div>
+                <div class="letter" id="q4-8"></div>
             </div>
         </div>
     </div>
@@ -405,6 +418,18 @@
 
     <script>
         const finalCodeword = "BURGERKING";
+
+        // Function to fill the answer grid as students type
+        function fillAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+            const correctAnswerArr = correctAnswer.split('');
+
+            // Loop through each letter in the answer and fill the grid
+            for (let i = 0; i < correctAnswerArr.length; i++) {
+                const letterBox = document.getElementById(`${questionId}-${i}`);
+                letterBox.textContent = input[i] || ''; // Fill the box if there is input, else leave it empty
+            }
+        }
 
         // Function to check the final codeword
         function checkCodeword() {
