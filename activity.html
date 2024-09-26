@@ -118,18 +118,14 @@
 <body>
     <h1>Codebreaker!</h1>
     <div class="instructions">
-        <p>Find the answer to the questions and type it in the input field. The answer will automatically fill in the blank boxes below. When you have answered all of the questions, take the letters from the numbered boxes and put them into the final grid to discover the codeword.</p>
+        <p>Find the answer to the questions and put each letter of the word in the blank boxes. 
+            When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>
     </div>
 
     <!-- Example -->
     <div class="question-section">
         <div class="question">Example: Which city is the focus for your assignment?</div>
-        <div class="instructions">
-            <p>
-                Access the Library website at <a href="https://www.mmu.ac.uk/library" target="_blank">https://www.mmu.ac.uk/library</a>.
-                Use Library Search to find the journal article “how was your meal?”. Click on "View PDF" to access the full article and go to section 2.1 of the article "The Big Four Restaurant Attributes".
-            </p>
-        </div>
+       
         <input class="answer-input" id="example-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('example', 'MANCHESTER')">
         <div class="answer-grid">
             <div class="grid-column">
