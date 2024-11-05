@@ -213,22 +213,24 @@
 
     <!-- Question 1 -->
     <div class="question-section">
-        <h2>Question 1</h2>
-        <h3>What is the third most commonly appearing restaurant attribute in the article?</h3>
+        <h2>Library Search</h2>
+        
         <div class="instructions">
-            <ul>
-                
-                <li>Use Library Search to find the journal article “how was your meal?”.</li>
-                <li>TIP: Use "speech marks" as shown to ensure the words appear next to each other in the results.</li>
-                <li>Select View PDF to access the full article.</li>
-                <li>Go to section 2.1 of the article 'The Big Four Restaurant Attributes'.</li>
-            </ul>
+            <ul> 
+                <li>Access the Library website <a href="https://www.mmu.ac.uk/library">mmu.ac.uk/library</a></li>
+<li>Use Library Search to find the journal article ‘The role of brand coolness in the masstige co-branding of luxury and mass brands’ </li>
+<li>TIP: use double quotation marks as shown to ensure the words appear next to each other in the results.</li>
+<li>Select View PDF to access the full article.</li>
+<li>Go to section 2.4 of the article Brand Coolness. </li>         
+</ul>
+<h3>Q1. What is the third listed brand which is perceived to be ‘cool’?</h3>
         </div>
         <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'ATMOSPHERE')">
         <div class="answer-grid">
-            <div class="grid-column">
-                <div></div>
-                <div class="letter" id="q1-0"></div> 
+
+ <div class="grid-column">
+                <div class="number">2</div> 
+                <div class="letter highlight" id="q1-0"></div> 
             </div>
             <div class="grid-column">
                 <div></div>
@@ -236,28 +238,19 @@
             </div>
             <div class="grid-column">
                 <div></div>
-                <div class="letter" id="q1-2"></div>
+                <div class="letter" id="q1-2"></div> 
             </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter" id="q1-3"></div> 
+         <div class="grid-column">
+                <div class="number">6</div> 
+                <div class="letter highlight" id="q1-3"></div> 
             </div>
             <div class="grid-column">
                 <div></div>
                 <div class="letter" id="q1-4"></div> 
             </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter" id="q1-5"></div>
+            
             </div>
-            <div class="grid-column">
-                <div></div>
-                <div class="letter" id="q1-6"></div> 
-            </div>
-            <div class="grid-column">
-                <div class="number">5</div> 
-                <div class="letter highlight" id="q1-7"></div> 
-            </div>
+           
             <div class="grid-column">
                 <div class="number">3</div>
                 <div class="letter highlight" id="q1-8"></div>
