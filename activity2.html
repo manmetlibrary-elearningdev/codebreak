@@ -568,7 +568,7 @@
 <li>Note: the codeword is made of 2 words.</li>
                                 </p>
         </div>
-        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'BURGERKING')">
+        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'RALPHLAUREN')">
         <div class="answer-grid">
             <div class="grid-column">
                 <div class="number">1</div>
@@ -590,14 +590,15 @@
                 <div class="number">5</div>
                 <div class="letter" id="codeword-4"></div> 
             </div>
+         
+
+            <!-- Space between words -->
+            <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
+  
             <div class="grid-column">
                 <div class="number">6</div>
                 <div class="letter" id="codeword-5"></div> 
             </div>
-
-            <!-- Space between words -->
-            <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
-
             <div class="grid-column">
                 <div class="number">7</div>
                 <div class="letter" id="codeword-6"></div> 
@@ -614,13 +615,17 @@
                 <div class="number">10</div>
                 <div class="letter" id="codeword-9"></div> 
             </div>
+              <div class="grid-column">
+                <div class="number">11</div>
+                <div class="letter" id="codeword-10"></div> 
+            </div>
         </div>
         <button onclick="checkCodeword()">Check Codeword</button>
         <div id="codeword-feedback" class="feedback"></div>
     </div>
 
     <script>
-        const finalCodeword = "BURGERKING";
+        const finalCodeword = "RALPHLAUREN";
 
         // Function to fill the answer grid as students type
         function fillAnswer(questionId, correctAnswer) {
