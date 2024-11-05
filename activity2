@@ -6,7 +6,6 @@
     <title>Codebreaker</title>
     
     <style>
-     /* General body styles */
      body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
@@ -16,7 +15,6 @@
         line-height: 1.6;
     }
 
-    /* Header styles */
     h1 {
         text-align: center;
         font-size: 28px;
@@ -41,7 +39,6 @@
         margin-bottom: 50px;
     }
 
-    /* Instruction box styles */
     .instructions {
         background-color: #e0e0e0;
         padding: 15px;
@@ -50,21 +47,22 @@
         line-height: 1.5;
     }
 
-    /* Answer grid styles */
+    .instructions ul {
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+
+    .instructions li {
+        margin-bottom: 10px;
+    }
+
     .answer-grid {
         display: flex;
         justify-content: flex-start;
         gap: 5px;
         margin-bottom: 20px;
     }
- 
-    .grid-space { 
-        width: 30px; 
-        height: 30px; 
-        background: transparent; 
-    }
 
-    /* Styles for grid columns containing letters */
     .grid-column {
         display: flex;
         flex-direction: column;
@@ -84,19 +82,22 @@
         color: black;
     }
 
-    /* Numbered boxes for codeword letters */
     .grid-column .number {
+       
         background-color: transparent;
         color: black;
     }
 
-    /* Highlighting certain boxes for the codeword */
     .grid-column .letter.highlight {
         background-color: #00c1d4;
         color: black;
     }
 
-    /* Input styles for answers */
+        .grid-column div:first-child {
+    background-color: transparent;  /* No fill */
+    border: none;  /* No border line */
+}
+
     .answer-input {
         width: 100%;
         margin-bottom: 15px;
@@ -106,7 +107,6 @@
         border: 1px solid #ddd;
     }
 
-    /* Button styles */
     button {
         background-color: #007BFF;
         color: white;
@@ -121,7 +121,6 @@
         background-color: #0056b3;
     }
 
-    /* Feedback text styles */
     .feedback {
         font-size: 18px;
         margin-top: 15px;
@@ -140,127 +139,392 @@
     <h1>Codebreaker!</h1>
     
     <div class="instructions">
-        <!-- Instructions for the entire game -->
-        <p>Find the answer to the questions and put each letter of the word in the blank boxes. 
-        <br>
-        Note that some answers may be more than one word (see example below). 
-        When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>   
+        
+       <p>Find the answers to the questions below and enter your answers in the spaces provided.</p>     
+         <p>When you have answered all of the questions, take the letters from the numbered boxes and put them into the correct order to decipher the codeword.</p>   
+
+        
+     <p>Instructions: </p>
+        
+        <p> <li>Open your <a href="https://www.mmu.ac.uk/library/search-tools/subject-guides/marketing" target="_blank">subject guide for Marketing</a>.</li>
+<li>From your subject guide, you can access Library Search and the three databases you will need to search to answer the questions below: Lexis+, Mintel and Statista.</li>
+            <li>You will see three databases listed, click on ‘Load more results’ to see the full list of databases.</li>
+        </p>
     </div>
 
-    <h2>Example</h2>
-    <p>Where can you browse databases for your subject area?</p>
-
+    <!-- Example -->
+    <h2>Example: Where can you browse databases for your subject area?</h2>
     <div class="answer-grid">
-        <!-- Answer Grid for "SUBJECT GUIDE" with a space between "SUBJECT" and "GUIDE" -->
         <div class="grid-column">
-            <div>S</div> 
-            <div>U</div>
-            <div>B</div>
-            <div>J</div>
-            <div>E</div>
-            <div>C</div>
-            <div>T</div>
+            <div></div>
+            <div class="letter">S</div> 
         </div>
-        <div class="grid-space"></div> <!-- Space between "SUBJECT" and "GUIDE" -->
         <div class="grid-column">
-            <div>G</div> 
-            <div>U</div>
-            <div>I</div>
-            <div>D</div>
-            <div>E</div> 
+            <div></div>
+            <div class="letter">U</div> 
         </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">B</div> 
+        </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">J</div> 
+        </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">E</div> 
+        </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">C</div> 
+    
+        </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">T</div> 
+        </div>
+
+ <!-- Space between words -->
+            <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
+
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">G</div> 
+        </div>
+        <div class="grid-column">
+            <div></div>
+            <div class="letter">U</div> 
+        </div>
+<div class="grid-column">
+            <div></div>
+            <div class="letter">I</div> 
+        </div>
+<div class="grid-column">
+            <div></div>
+            <div class="letter">D</div> 
+        </div>
+<div class="grid-column">
+            <div></div>
+            <div class="letter">E</div> 
+        </div>
+       
     </div>
 
-
-
-
-    <!-- Template for Questions -->
-    <!-- Copy this section to add more questions, replacing placeholders with actual content -->
+    <!-- Question 1 -->
     <div class="question-section">
-        <h2>Library Search</h2>
-      <ul> 
-      <li>Access the Library website <a href="https://www.mmu.ac.uk/library">mmu.ac.uk/library</a> </li>
-<li>Use Library Search to find the journal article ‘The role of brand coolness in the masstige co-branding of luxury and mass brands’ <br>TIP: use double quotation marks as shown to ensure the words appear next to each other in the results.</li>
-<li>Select View PDF to access the full article.</li>
-<li>Go to section 2.4 of the article Brand Coolness</li>
-</ul>
-        <h3>Question 1: What is the third listed brand which is perceived to be ‘cool’?</h3>
-        
-
-        
-        <!-- Input box for answer -->
-        <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'YOUR_ANSWER_HERE')">
-        
-        <!-- Answer grid for the solution letters (replace grid column content as needed) -->
+        <h2>Question 1</h2>
+        <h3>What is the third most commonly appearing restaurant attribute in the article?</h3>
+        <div class="instructions">
+            <ul>
+                
+                <li>Use Library Search to find the journal article “how was your meal?”.</li>
+                <li>TIP: Use "speech marks" as shown to ensure the words appear next to each other in the results.</li>
+                <li>Select View PDF to access the full article.</li>
+                <li>Go to section 2.1 of the article 'The Big Four Restaurant Attributes'.</li>
+            </ul>
+        </div>
+        <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'ATMOSPHERE')">
         <div class="answer-grid">
             <div class="grid-column">
-                <div class="letter" id="q1-0"></div> <!-- Letter box -->
-      <div></div> 
-      <div></div>
-    <div class="letter" id="q1-0"></div> <!-- Letter box -->
-      <div></div> 
-                
+                <div></div>
+                <div class="letter" id="q1-0"></div> 
             </div>
-           
-            
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-1"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-2"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-3"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-4"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-5"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-6"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">5</div> 
+                <div class="letter highlight" id="q1-7"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">3</div>
+                <div class="letter highlight" id="q1-8"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q1-9"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Repeat the above question-section div for additional questions -->
+    <!-- Question 2 -->
+    <div class="question-section">
+        <h2>Question 2</h2>
+        <h3>What is the name of the leisure chain redeveloping Hatch on Oxford Road?</h3>
+        <div class="instructions">
+            <ul>
+              <li> Access the Lexis+ database.</li>
+                <li>Select the Newspapers link.</li>
+                <li>Select UK regional newspapers.</li>
+                <li>Select Manchester Evening News.</li>
+                <li>Search for “street food”.</li>
+                <li>Access the article ‘New food venue set to Hatch’.</li>
+            </ul>
+        </div>
+        <input class="answer-input" id="q2-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q2', 'STACK')">
+        <div class="answer-grid">
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q2-0"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q2-1"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q2-2"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q2-3"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">7</div> 
+                <div class="letter highlight" id="q2-4"></div> 
+            </div>
+        </div>
+    </div>
 
-    <!-- Final Codeword Entry Section -->
+    <!-- Question 3 -->
+    <div class="question-section">
+        <h2>Question 3</h2>
+        <h3>What is the name of the Latin American casual dining restaurant which relaunched its 'Race to Rio' tour in January 2023?</h3>
+        <div class="instructions">
+            <ul>
+                <li>Access the Mintel database.</li>
+                <li>Search for ethnic restaurants.</li>
+                <li>Access the report Ethnic restaurants and takeaways – UK – 2023.</li>
+                <li>Expand the Market section and access the Market drivers section of the report.</li>
+            </ul>
+        </div>
+        <input class="answer-input" id="q3-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q3', 'LASIGUANAS')">
+        <div class="answer-grid">
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-0"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-1"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-2"></div> 
+            </div>
+
+                <!-- Space between words -->
+            <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
+
+            
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-3"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">4</div>
+                <div class="letter highlight" id="q3-4"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">2</div> 
+                <div class="letter highlight" id="q3-5"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-6"></div>
+            </div>
+            <div class="grid-column">
+                <div class="number">9</div> 
+                <div class="letter highlight" id="q3-7"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-8"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q3-9"></div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-section">
+        <h2>Question 4</h2>
+        <h3>What type of venue has the lowest number of premises?</h3>
+        <div class="instructions">
+            <ul>
+                <li>Access the Statista database.</li>
+                <li>Search for: restaurants United Kingdom.</li>
+                <li>Access the report Restaurants in the United Kingdom.</li>
+                <li>Download the report as a PDF file.</li>
+                <li>From the table of contents page, access ‘Number of food and drink venues in Great Britain 2017-2023 by segment’ on page 9 (you can select the page number to go directly to the page).</li>
+            </ul>
+        </div>
+        <input class="answer-input" id="q4-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q4', 'NIGHTCLUB')">
+        <div class="answer-grid">
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-0"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">8</div> 
+                <div class="letter highlight" id="q4-1"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">10</div>
+                <div class="letter highlight" id="q4-2"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-3"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-4"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-5"></div>
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-6"></div> 
+            </div>
+            <div class="grid-column">
+                <div></div>
+                <div class="letter" id="q4-7"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">1</div> 
+                <div class="letter highlight" id="q4-8"></div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Codeword Entry -->
     <div class="question-section">
         <h2>Enter the final codeword:</h2>
         <div class="instructions">
             <p>
                 To solve the code:
                 <li>Take the highlighted letters from your previous answers.</li>
-                <li>Arrange these letters in order according to their corresponding numbers (1,2,3, etc).</li>
-                <li>The codeword may be more than one word.</li>
-            </p>
+<li>Arrange these letters in order according to their corresponding numbers (1,2,3, etc).</li>
+<li>Note: the codeword is made of 2 words.</li>
+                                </p>
         </div>
-        
-        <!-- Input for final codeword guess -->
-        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'CODEWORD_HERE')">
-        
-        <!-- Answer grid for the final codeword -->
+        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'BURGERKING')">
         <div class="answer-grid">
             <div class="grid-column">
-                <div class="number">1</div> <!-- Numbered box -->
-                <div class="letter" id="codeword-0"></div> <!-- Letter box -->
+                <div class="number">1</div>
+                <div class="letter" id="codeword-0"></div> 
             </div>
-            <!-- Add more numbered boxes for each letter in the codeword -->
+            <div class="grid-column">
+                <div class="number">2</div>
+                <div class="letter" id="codeword-1"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">3</div>
+                <div class="letter" id="codeword-2"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">4</div>
+                <div class="letter" id="codeword-3"></div>
+            </div>
+            <div class="grid-column">
+                <div class="number">5</div>
+                <div class="letter" id="codeword-4"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">6</div>
+                <div class="letter" id="codeword-5"></div> 
+            </div>
+
+            <!-- Space between words -->
+            <div class="grid-column" style="width: 15px;"></div> <!-- Empty space -->
+
+            <div class="grid-column">
+                <div class="number">7</div>
+                <div class="letter" id="codeword-6"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">8</div>
+                <div class="letter" id="codeword-7"></div> 
+            </div>
+            <div class="grid-column">
+                <div class="number">9</div>
+                <div class="letter" id="codeword-8"></div>
+            </div>
+            <div class="grid-column">
+                <div class="number">10</div>
+                <div class="letter" id="codeword-9"></div> 
+            </div>
         </div>
-        
-        <!-- Button to check if the codeword is correct -->
         <button onclick="checkCodeword()">Check Codeword</button>
         <div id="codeword-feedback" class="feedback"></div>
     </div>
 
     <script>
-        const finalCodeword = "YOUR_FINAL_CODEWORD";
+        const finalCodeword = "BURGERKING";
 
-        // Function to fill the answer grid as users type
+        // Function to fill the answer grid as students type
         function fillAnswer(questionId, correctAnswer) {
             const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+            const inputWithoutSpaces = input.replace(/\s+/g, ''); // Remove spaces from the input
             const correctAnswerArr = correctAnswer.split('');
 
+            // Loop through each letter in the answer and fill the grid
             for (let i = 0; i < correctAnswerArr.length; i++) {
                 const letterBox = document.getElementById(`${questionId}-${i}`);
-                letterBox.textContent = input[i] || ''; 
+                letterBox.textContent = inputWithoutSpaces[i] || ''; // Fill the box if there is input, else leave it empty
             }
         }
 
         // Function to check the final codeword
         function checkCodeword() {
-            const codewordInput = [...Array(10).keys()].map(i => document.getElementById(`codeword-${i}`).textContent).join('');
+            const codewordInput = [
+                document.getElementById('codeword-0').textContent,
+                document.getElementById('codeword-1').textContent,
+                document.getElementById('codeword-2').textContent,
+                document.getElementById('codeword-3').textContent,
+                document.getElementById('codeword-4').textContent,
+                document.getElementById('codeword-5').textContent,
+                document.getElementById('codeword-6').textContent,
+                document.getElementById('codeword-7').textContent,
+                document.getElementById('codeword-8').textContent,
+                document.getElementById('codeword-9').textContent,
+            ].join('');
 
             const feedbackElement = document.getElementById('codeword-feedback');
             if (codewordInput === finalCodeword) {
-                feedbackElement.textContent = '✔️ Correct!';
+                feedbackElement.textContent = '✔️ Correct! The codeword is BURGER KING';
+                feedbackElement.classList.remove('incorrect');
                 feedbackElement.classList.add('correct');
             } else {
                 feedbackElement.textContent = '❌ Incorrect! Try again.';
+                feedbackElement.classList.remove('correct');
                 feedbackElement.classList.add('incorrect');
             }
         }
