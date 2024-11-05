@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebreaker</title>
+    
+    <style>
+     /* General body styles */
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    /* Header styles */
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        text-align: left;
+        color: #007BFF;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .question-section {
+        margin-bottom: 50px;
+    }
+
+    /* Instruction box styles */
+    .instructions {
+        background-color: #e0e0e0;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        line-height: 1.5;
+    }
+
+    /* Answer grid styles */
+    .answer-grid {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+ 
+    .grid-space { 
+        width: 30px; 
+        height: 30px; 
+        background: transparent; 
+    }
+
+    /* Styles for grid columns containing letters */
+    .grid-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: transparent; 
+    }
+
+    .grid-column div {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        border: 1px solid black;
+        background-color: transparent;
+        color: black;
+    }
+
+    /* Numbered boxes for codeword letters */
+    .grid-column .number {
+        background-color: transparent;
+        color: black;
+    }
+
+    /* Highlighting certain boxes for the codeword */
+    .grid-column .letter.highlight {
+        background-color: #00c1d4;
+        color: black;
+    }
+
+    /* Input styles for answers */
+    .answer-input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    /* Button styles */
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Feedback text styles */
+    .feedback {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    .feedback.correct {
+        color: green;
+    }
+
+    .feedback.incorrect {
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <h1>Codebreaker!</h1>
+    
+    <div class="instructions">
+        <!-- Instructions for the entire game -->
+        <p>Find the answer to the questions and put each letter of the word in the blank boxes. 
+        <br>
+        Note that some answers may be more than one word (see example below). 
+        When you have answered all of the questions, take the letters from the numbered boxes and put them into the key at the end to discover the codeword.</p>   
+    </div>
+
+    <h2>Example</h2>
+    <p>Where can you browse databases for your subject area?</p>
+
+    <div class="answer-grid">
+        <!-- Answer Grid for "SUBJECT GUIDE" with a space between "SUBJECT" and "GUIDE" -->
+        <div class="grid-column">
+            <div>S</div> 
+            <div>U</div>
+            <div>B</div>
+            <div>J</div>
+            <div>E</div>
+            <div>C</div>
+            <div>T</div>
+        </div>
+        <div class="grid-space"></div> <!-- Space between "SUBJECT" and "GUIDE" -->
+        <div class="grid-column">
+            <div>G</div> 
+            <div>U</div>
+            <div>I</div>
+            <div>D</div>
+            <div>E</div> 
+        </div>
+    </div>
+
+
+
+
+    <!-- Template for Questions -->
+    <!-- Copy this section to add more questions, replacing placeholders with actual content -->
+    <div class="question-section">
+        <h2>Library Search</h2>
+      <ul> 
+      <li>Access the Library website <a href="https://www.mmu.ac.uk/library">mmu.ac.uk/library</a> </li>
+<li>Use Library Search to find the journal article ‘The role of brand coolness in the masstige co-branding of luxury and mass brands’ <br>TIP: use double quotation marks as shown to ensure the words appear next to each other in the results.</li>
+<li>Select View PDF to access the full article.</li>
+<li>Go to section 2.4 of the article Brand Coolness</li>
+</ul>
+        <h3>Question 1: What is the third listed brand which is perceived to be ‘cool’?</h3>
+        
+
+        
+        <!-- Input box for answer -->
+        <input class="answer-input" id="q1-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('q1', 'YOUR_ANSWER_HERE')">
+        
+        <!-- Answer grid for the solution letters (replace grid column content as needed) -->
+        <div class="answer-grid">
+            <div class="grid-column">
+                <div class="letter" id="q1-0"></div> <!-- Letter box -->
+      <div></div> 
+      <div></div>
+    <div class="letter" id="q1-0"></div> <!-- Letter box -->
+      <div></div> 
+                
+            </div>
+           
+            
+        </div>
+    </div>
+
+    <!-- Repeat the above question-section div for additional questions -->
+
+    <!-- Final Codeword Entry Section -->
+    <div class="question-section">
+        <h2>Enter the final codeword:</h2>
+        <div class="instructions">
+            <p>
+                To solve the code:
+                <li>Take the highlighted letters from your previous answers.</li>
+                <li>Arrange these letters in order according to their corresponding numbers (1,2,3, etc).</li>
+                <li>The codeword may be more than one word.</li>
+            </p>
+        </div>
+        
+        <!-- Input for final codeword guess -->
+        <input class="answer-input" id="codeword-input" type="text" placeholder="Type your answer here" oninput="fillAnswer('codeword', 'CODEWORD_HERE')">
+        
+        <!-- Answer grid for the final codeword -->
+        <div class="answer-grid">
+            <div class="grid-column">
+                <div class="number">1</div> <!-- Numbered box -->
+                <div class="letter" id="codeword-0"></div> <!-- Letter box -->
+            </div>
+            <!-- Add more numbered boxes for each letter in the codeword -->
+        </div>
+        
+        <!-- Button to check if the codeword is correct -->
+        <button onclick="checkCodeword()">Check Codeword</button>
+        <div id="codeword-feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        const finalCodeword = "YOUR_FINAL_CODEWORD";
+
+        // Function to fill the answer grid as users type
+        function fillAnswer(questionId, correctAnswer) {
+            const input = document.getElementById(`${questionId}-input`).value.toUpperCase();
+            const correctAnswerArr = correctAnswer.split('');
+
+            for (let i = 0; i < correctAnswerArr.length; i++) {
+                const letterBox = document.getElementById(`${questionId}-${i}`);
+                letterBox.textContent = input[i] || ''; 
+            }
+        }
+
+        // Function to check the final codeword
+        function checkCodeword() {
+            const codewordInput = [...Array(10).keys()].map(i => document.getElementById(`codeword-${i}`).textContent).join('');
+
+            const feedbackElement = document.getElementById('codeword-feedback');
+            if (codewordInput === finalCodeword) {
+                feedbackElement.textContent = '✔️ Correct!';
+                feedbackElement.classList.add('correct');
+            } else {
+                feedbackElement.textContent = '❌ Incorrect! Try again.';
+                feedbackElement.classList.add('incorrect');
+            }
+        }
+    </script>
+</body>
+</html>
